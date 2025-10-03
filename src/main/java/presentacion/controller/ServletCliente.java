@@ -1,4 +1,4 @@
-package servlets;
+package presentacion.controller;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.DaoCliente;
+import datosImpl.ClienteDaoImpl;
 import entidad.Cliente;
 /**
  * Servlet implementation class ServletCliente
@@ -34,7 +34,7 @@ public class ServletCliente extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		// Logica para lista de clientes
-		DaoCliente daoCliente = new DaoCliente();
+		ClienteDaoImpl daoCliente = new ClienteDaoImpl();
 		ArrayList<Cliente> listaClientes= daoCliente.ObtenerClientes();
 		
 		request.setAttribute("listaClientes", listaClientes);
@@ -66,7 +66,7 @@ public class ServletCliente extends HttpServlet {
 		String telefono = request.getParameter("txtTelefono");
 		
 		// Creo objeto Cliente y DaoCliente
-		DaoCliente daoCliente = new DaoCliente();
+		ClienteDaoImpl daoCliente = new ClienteDaoImpl();
 		Cliente cliente = new Cliente(dni, cuil, nombre, apellido, sexo, fechaNacimiento, direccion, nacionalidad, localidad, provincia, correoElectronico, telefono);
 		int filas = daoCliente.AgregarCliente(cliente);
 		

@@ -1,4 +1,4 @@
-package dao;
+package datosImpl;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -7,9 +7,10 @@ import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+import datos.ClienteDao;
 import entidad.Cliente;
 
-public class DaoCliente {
+public class ClienteDaoImpl implements ClienteDao {
 	
 	// Datos conexion
 	private String host = "jdbc:mysql://localhost:3306/";
@@ -20,6 +21,7 @@ public class DaoCliente {
 	// Metodos
 	
 	// Listar
+	@Override
 	public ArrayList<Cliente> ObtenerClientes(){
 		
 		// IMPORTANTE
@@ -66,6 +68,7 @@ public class DaoCliente {
 	}
 	
 	// Agregar
+	@Override
 	public int AgregarCliente(Cliente cliente) {
 		
 		// IMPORTANTE

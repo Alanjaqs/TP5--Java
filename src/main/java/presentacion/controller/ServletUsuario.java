@@ -1,4 +1,4 @@
-package servlets;
+package presentacion.controller;
 
 import java.io.IOException;
 
@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import datosImpl.UsuarioDaoImpl;
 import entidad.Usuario;
-import dao.DaoUsuario;
 
 /**
  * Servlet implementation class ServletUsuario
@@ -49,7 +49,7 @@ public class ServletUsuario extends HttpServlet {
 		usuario.setNombre(nombre);
 		usuario.setContrasena(contrasena);
 		
-		DaoUsuario daoUsuario = new DaoUsuario();
+		UsuarioDaoImpl daoUsuario = new UsuarioDaoImpl();
 		
 		if(daoUsuario.ValidarUsuario(usuario)) {
 			request.getSession().setAttribute("nombreUsuario", usuario.getNombre());

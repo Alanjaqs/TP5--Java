@@ -1,12 +1,13 @@
-package dao;
+package datosImpl;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import datos.UsuarioDao;
 import entidad.Usuario;
 
-public class DaoUsuario {
+public class UsuarioDaoImpl implements UsuarioDao {
 
 	// Datos conexion
 		private String host = "jdbc:mysql://localhost:3306/";
@@ -15,6 +16,7 @@ public class DaoUsuario {
 		private String dbName = "sistema_clientes";
 		
 	// Comprobar si existe usuario
+	@Override
 	public boolean ValidarUsuario(Usuario usuario) {
 		
 		// IMPORTANTE
